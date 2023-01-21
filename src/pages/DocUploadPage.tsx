@@ -1,4 +1,23 @@
+import { useSession, getSession } from "next-auth/react"
+import { useRouter } from "next/router"
+
+
+
+
 export default function DocUploadPage(){
+    const { data: session, status } = useSession()
+    const router = useRouter()
+
+    if (status === "loading") {
+        return <p>Loading...</p>
+      }
+    
+      if (status === "unauthenticated") {
+        return (
+            router.push("/")
+        )
+      }
+
     return(
         <main>
             <div className="hero min-h-screen bg-secondary-400">
