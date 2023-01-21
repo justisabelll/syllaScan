@@ -10,11 +10,9 @@ const Home: NextPage = () => {
         <meta name="description" content="Detect bias " />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body>
         <main>
         <Hero/>
         </main>
-      </body>
     </>
   );
 };
