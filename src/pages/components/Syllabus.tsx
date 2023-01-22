@@ -1,9 +1,3 @@
-
-import { ReactElement } from 'react';
-
-
-
-
 export default function Syllabus({syllabusText}:{ syllabusText: object }) {
 
     // split syllabusText by key and value
