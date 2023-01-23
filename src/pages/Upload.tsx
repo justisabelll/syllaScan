@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 
 
 
-export default function DocUploadPage(){
+export default function Upload(){
     const { data: session, status } = useSession()
     const router = useRouter()
 
