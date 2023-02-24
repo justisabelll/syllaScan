@@ -2,4 +2,4 @@ fastapi==0.92.0
 sentence_transformers==2.2.2
 torch==1.13.1
 uvicorn==0.20.0
-python-multipart==1.15.0
+python-multipart==0.0.5
