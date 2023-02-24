@@ -1,9 +1,8 @@
-import json 
 from semanticSearch import semanticSearch as Search 
 from fastapi import FastAPI, File, UploadFile
 
 
-semanticSearchAPI = FastAPI()
+app = FastAPI()
 
 def prints(text):
     print(type(text))
@@ -13,7 +12,7 @@ def prints(text):
 #    return {"Hello": "World"}
 
 
-@semanticSearchAPI.post("/")
+@app.post("/")
 async def root(file: UploadFile = File(...)):
     syllabus = await file.read() 
         
