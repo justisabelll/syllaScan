@@ -1,46 +1,44 @@
-import Syllabus from "../components/Syllabus"
 import SeeBiasedWords from "../components/SeeBiasedWords"
+import example_response from "../example_response.json"
+import Syllabus from "../components/Syllabus"
 
-interface fromDatabase {
-    syllabusText: object,
-    score: number,
-    potentiallyBiasedwords: string[]
+interface SyllabusSearchProps {
+    results: {
+        corpus: string,
+        findings:[
+            {
+                "query": string,
+                "word": string,
+                "idx": number,
+                "score": number
+            }
+        ],
+        docScore: number
+    }
+
 }
 
-
-const fromDatabase = { 
-syllabusText : {
-    "Course Title" : " The Art of Silly Walk Analysis\n\n" ,
-    "Instructor" : " ChatGPT\n\n" ,
-    "Course Description" : " In this class, we will explore the history and techniques of the silly walk. From Monty Python to modern interpretations, we will study the various forms and styles of silly walking. Students will also have the opportunity to create and perform their own silly walk routines.\n\n" ,
-    "Course Goals" : " \n Develop an understanding of the history and evolution of the silly walk\n Learn various techniques for performing a silly walk\n Create and perform a personal silly walk routine\n\n" ,
-    "Textbook" : " \"The Complete Monty Python's Flying Circus: All the Words, Volume 2\" by Eric Idle and Michael Palin\n\n" ,
-    "Grading" : " \n Class participation and attendance (20%)\n In-class silly walk performances (30%)\n Final silly walk routine project (50%)\n\n" ,
-    "Attendance Policy" : " Regular attendance is mandatory and more than 2 absences will lower your grade. Silly walk-related excuses will be accepted.\n\n" ,
-    "Office Hours" : " By appointment only, but I will always be available for a silly walk consultation.\n\n" ,
-    "Note" : " This is a fictional class."
-} ,
-score: 3.5, 
-potentiallyBiasedwords: ["word1", "word2", "silly"]}
- 
-
+const testJSON = example_response; // replace with the actual JSON response from the API
 
 export default function Results() {
     return(
-        <div className="grid min-h-screen grid-cols-2 content-center mt-56 mr-12 ">
-            <div className="">
-                <h1 className="text-center text-6xl font-serif text-primary sticky top-0">Bias Rating:</h1>
-                <h1 className="mt-6 text-center text-4xl font-serif text-accent sticky top-16">{fromDatabase.score} out of 10</h1>
-                <SeeBiasedWords potentiallyBiasedWords = {fromDatabase.potentiallyBiasedwords}/>
+        <div className="relative isolate overflow-hidden  px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
+          <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+            <div className="lg:pr-4">
+              <div className="lg:max-w-lg">
+              <Syllabus syllabusText = {testJSON.results.corpus}/>
+              </div>
             </div>
-            <div>
-            <div className="max-h-min relative max-w-fit mx-auto shadow-lg ring-3 ring-black/70 rounded-xl">
-
-                <Syllabus syllabusText = {fromDatabase.syllabusText}/>
-
-                </div>
-            </div>
+          </div>
+          <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+          <p className="mt-6 text-xl leading-8 text-gray-700">
+                  Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam
+                  eget aliquam. Quisque id at vitae feugiat egestas.
+                </p>
+          </div> 
         </div>
+      </div>
 
     )
 }

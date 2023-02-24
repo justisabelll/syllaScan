@@ -1,24 +1,12 @@
-export default function Syllabus({syllabusText}:{ syllabusText: object }) {
-
-    // split syllabusText by key and value
-    const syllabusSectionTitles = Object.keys(syllabusText)
-    const syllabusSectionText = Object.values(syllabusText)
-
-    // display the titles and text in sections
+export default function Syllabus2({syllabusText}:{ syllabusText: string }) {
+      
     return (
-        <div>
-            {syllabusSectionTitles.map((title, index) => {
-                return (
-                    <div key={index}>
-                        <p className="m-6 text-3xl text-primary">{title}</p>
-                        <p id ="inputText" className="m-6 text-2xl text-secondary">{syllabusSectionText[index]}</p>
-                        <br/>
-                    </div>
-                )
-            }
-            )}
-        </div>
-        
-    )
+    <pre className="lg:col-span-2 lg:col-start-1 lg:row-start-2  whitespace-pre-wrap lg:mx-auto t lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-4">
+    <div className="lg:pr-4">
+      <div className="max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg">
+        {syllabusText}
+      </div>
+    </div>
+  </pre>
+  )
 }
-

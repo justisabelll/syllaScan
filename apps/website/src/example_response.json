@@ -1,0 +1,152 @@
+{
+  "results": {
+    "corpus": "\n\nIntroduction to Kinship and Dominance\n\nCourse Description:\nThis course is designed to introduce students to the study of kinship and dominant power structures. We will explore the role of kinship in social organizations, the impact of dominance on culture and the individual, and the ways in which kinship and dominance interact to shape social life. \n\nCourse Goals: \nBy the end of this course, students should be able to:\n1. Describe the concept of kinship and its role in social organizations.\n2. Analyze the impact of dominant power structures on culture and the individual.\n3. Evaluate the relationship between kinship and dominance in social life.\n\nCourse Requirements:\n• Class attendance and participation: Students are expected to attend class regularly and to participate in class discussions and activities.\n• Assignments: Students will be required to complete a series of assignments, including essays, presentations, and research projects.\n• Final Exam: Students will be required to take a comprehensive final exam.\n\nGrading: \n• Class attendance and participation: 10%\n• Assignments: 70%\n• Final Exam: 20%\n\nTexts and Resources:\n• Readings from primary and secondary sources will be provided by the instructor. \n• Online resources, such as websites and scholarly journals, are also required.\n\nCourse Schedule:\nWeek 1: Introduction to Kinship\nWeek 2: Types of Kinship\nWeek 3: Kinship and Social Organization\nWeek 4: Dominant Power Structures\nWeek 5: The Impact of Dominance\nWeek 6: Kinship and Dominance\nWeek 7: Final Exam\n\nAcademic Integrity:\nStudents are expected to maintain academic integrity in all course assignments and activities. Plagiarism, cheating, and other forms of academic dishonesty will not be tolerated.",
+    "findings": [
+      {
+        "query": "affectionate",
+        "word": "relationship",
+        "idx": 91,
+        "score": 0.5207203030586243
+      },
+      {
+        "query": "communal",
+        "word": "social",
+        "idx": 97,
+        "score": 0.617206335067749
+      },
+      {
+        "query": "interpersonal",
+        "word": "social",
+        "idx": 51,
+        "score": 0.5827701091766357
+      },
+      {
+        "query": "inter-personal",
+        "word": "social",
+        "idx": 75,
+        "score": 0.5264142155647278
+      },
+      {
+        "query": "kind",
+        "word": "Types",
+        "idx": 191,
+        "score": 0.5506918430328369
+      },
+      {
+        "query": "kinship",
+        "word": "Kinship",
+        "idx": 195,
+        "score": 1.0000001192092896
+      },
+      {
+        "query": "respon",
+        "word": "provided",
+        "idx": 169,
+        "score": 0.5129991769790649
+      },
+      {
+        "query": "submissive",
+        "word": "dominance",
+        "idx": 95,
+        "score": 0.5156756639480591
+      },
+      {
+        "query": "together",
+        "word": "relationship",
+        "idx": 91,
+        "score": 0.5652484893798828
+      },
+      {
+        "query": "trust",
+        "word": "integrity",
+        "idx": 221,
+        "score": 0.5478417873382568
+      },
+      {
+        "query": "understand",
+        "word": "of",
+        "idx": 58,
+        "score": 0.505994439125061
+      },
+      {
+        "query": "active",
+        "word": "on",
+        "idx": 35,
+        "score": 0.5343399047851562
+      },
+      {
+        "query": "adventurous",
+        "word": "explore",
+        "idx": 23,
+        "score": 0.648101806640625
+      },
+      {
+        "query": "analy",
+        "word": "Analyze",
+        "idx": 77,
+        "score": 0.5451372861862183
+      },
+      {
+        "query": "decisive",
+        "word": "Final",
+        "idx": 213,
+        "score": 0.5838154554367065
+      },
+      {
+        "query": "dominant",
+        "word": "dominant",
+        "idx": 18,
+        "score": 1
+      },
+      {
+        "query": "force",
+        "word": "power",
+        "idx": 19,
+        "score": 0.5256185531616211
+      },
+      {
+        "query": "individual",
+        "word": "individual,",
+        "idx": 39,
+        "score": 0.9387191534042358
+      },
+      {
+        "query": "persist",
+        "word": "maintain",
+        "idx": 219,
+        "score": 0.5542439222335815
+      },
+      {
+        "query": "self-confiden",
+        "word": "dishonesty",
+        "idx": 235,
+        "score": 0.5772570967674255
+      },
+      {
+        "query": "selfconfiden",
+        "word": "dishonesty",
+        "idx": 235,
+        "score": 0.5425119400024414
+      },
+      {
+        "query": "superior",
+        "word": "dominant",
+        "idx": 18,
+        "score": 0.5945553183555603
+      },
+      {
+        "query": "inter-personal",
+        "word": "social",
+        "idx": 75,
+        "score": 0.5264142155647278
+      },
+      {
+        "query": "self-confiden",
+        "word": "dishonesty",
+        "idx": 235,
+        "score": 0.5772570967674255
+      }
+    ],
+    "docScore": 0.002414420212050508
+  }
+}
