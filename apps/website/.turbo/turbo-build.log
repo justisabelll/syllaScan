@@ -4,12 +4,7 @@
 
 info  - Loaded env from /Users/roy/Developer/syllaScan/apps/website/.env
 info  - Linting and checking validity of types...
-
-./src/pages/Upload.tsx
-1:22  Warning: 'getSession' is defined but never used.  @typescript-eslint/no-unused-vars
-8:19  Warning: 'session' is assigned a value but never used.  @typescript-eslint/no-unused-vars
-
-info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+error - ESLint: ESLint configuration in .eslintrc.json is invalid: 	- Unexpected top-level property "eslint.workingDirectories". 
 info  - Creating an optimized production build...
 info  - Compiled successfully
 info  - Collecting page data...
@@ -25,14 +20,14 @@ Route (pages)                              Size     First Load JS
 ├   /_app                                  0 B            84.2 kB
 ├ ○ /404                                   181 B          84.4 kB
 ├ λ /api/auth/[...nextauth]                0 B            84.2 kB
-├ ○ /Results                               1.43 kB        85.6 kB
+├ ○ /Results                               2.11 kB        86.3 kB
 └ ○ /Upload                                606 B          84.8 kB
-+ First Load JS shared by all              88.4 kB
++ First Load JS shared by all              88.6 kB
   ├ chunks/framework-114634acb84f8baa.js   45.4 kB
   ├ chunks/main-77e48e9928ad743e.js        27.8 kB
   ├ chunks/pages/_app-af692b37271d5025.js  10.2 kB
   ├ chunks/webpack-ee7e63bc15b31913.js     815 B
-  └ css/061016f708847d6d.css               4.23 kB
+  └ css/0d92ab59557c3427.css               4.39 kB
 
 λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
 ○  (Static)  automatically rendered as static HTML (uses no initial props)

@@ -42,3 +42,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 + .turbo
+apps/website/.turbo/turbo-build.log
