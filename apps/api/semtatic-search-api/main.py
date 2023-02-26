@@ -1,18 +1,33 @@
 from semanticSearch import semanticSearch as Search 
 from fastapi import FastAPI, File, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI()
 
 def prints(text):
     print(type(text))
+    
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+    "http://localhost:3000/Upload",
+]
 
-#@semanticSearchAPI.get("/")
-#def read_root():
-#    return {"Hello": "World"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+def read_root():
+   return {"Working": "True"}
 
 
-@app.post("/")
+@app.post("/upload")
 async def root(file: UploadFile = File(...)):
     syllabus = await file.read() 
         
