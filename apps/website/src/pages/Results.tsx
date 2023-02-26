@@ -32,10 +32,13 @@ export default function Results() {
             </div>
           </div>
           <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-          <p className="mt-6 text-xl leading-8 text-gray-700">
-                  Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem. At arcu, sit dui mi, nibh dui, diam
-                  eget aliquam. Quisque id at vitae feugiat egestas.
-                </p>
+          <h1 className="mt-6 text-6xl font-bold text-gray-700">
+              Document Score: 
+              </h1>
+              <div className="mt-2 text-2xl">
+              {testJSON.results.docScore}
+                </div>
+
           </div> 
         </div>
       </div>
