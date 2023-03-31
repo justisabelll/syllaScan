@@ -2,33 +2,51 @@
 > syllascan-website@0.1.0 build
 > next build
 
-info  - Loaded env from /Users/roy/Developer/syllaScan/apps/website/.env
+info  - Loaded env from /Users/roy/Developer/syllaScan/apps/website/.env.local
 info  - Linting and checking validity of types...
 error - ESLint: ESLint configuration in .eslintrc.json is invalid: 	- Unexpected top-level property "eslint.workingDirectories". 
 info  - Creating an optimized production build...
+
+[35m🌼 daisyUI components 2.47.0[0m [0m https://daisyui.com
+  [32m✔︎ Including:[0m [0m base, components, 1 themes, utilities
+  [32m❤︎ Support daisyUI: [0m https://opencollective.com/daisyui [0m
+  
 info  - Compiled successfully
 info  - Collecting page data...
-info  - Generating static pages (0/10)
-info  - Generating static pages (2/10)
-info  - Generating static pages (4/10)
-info  - Generating static pages (7/10)
-info  - Generating static pages (10/10)
-info  - Finalizing page optimization...
+prisma:error 
+Invalid `prisma.syllabi.findMany()` invocation:
 
-Route (pages)                              Size     First Load JS
-┌ ○ /                                      672 B          84.9 kB
-├   /_app                                  0 B            84.2 kB
-├ ○ /404                                   181 B          84.4 kB
-├ λ /api/auth/[...nextauth]                0 B            84.2 kB
-├ ○ /Results                               2.11 kB        86.3 kB
-└ ○ /Upload                                606 B          84.8 kB
-+ First Load JS shared by all              88.6 kB
-  ├ chunks/framework-114634acb84f8baa.js   45.4 kB
-  ├ chunks/main-77e48e9928ad743e.js        27.8 kB
-  ├ chunks/pages/_app-af692b37271d5025.js  10.2 kB
-  ├ chunks/webpack-ee7e63bc15b31913.js     815 B
-  └ css/0d92ab59557c3427.css               4.39 kB
 
-λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
-○  (Static)  automatically rendered as static HTML (uses no initial props)
+Can't reach database server at `db.shodhbtrjfucaphdwqbt.supabase.co`:`6543`
 
+Please make sure your database server is running at `db.shodhbtrjfucaphdwqbt.supabase.co`:`6543`.
+PrismaClientInitializationError: 
+Invalid `prisma.syllabi.findMany()` invocation:
+
+
+Can't reach database server at `db.shodhbtrjfucaphdwqbt.supabase.co`:`6543`
+
+Please make sure your database server is running at `db.shodhbtrjfucaphdwqbt.supabase.co`:`6543`.
+    at Kr.handleRequestError (/Users/roy/Developer/syllaScan/node_modules/@prisma/client/runtime/library.js:163:19773)
+    at Kr.handleAndLogRequestError (/Users/roy/Developer/syllaScan/node_modules/@prisma/client/runtime/library.js:163:19031)
+    at /Users/roy/Developer/syllaScan/node_modules/@prisma/client/runtime/library.js:173:282
+    at async /Users/roy/Developer/syllaScan/node_modules/@prisma/client/runtime/library.js:173:397
+    at async t._executeRequest (/Users/roy/Developer/syllaScan/node_modules/@prisma/client/runtime/library.js:173:9985)
+    at async t._request (/Users/roy/Developer/syllaScan/node_modules/@prisma/client/runtime/library.js:173:9714)
+    at async getStaticPaths (/Users/roy/Developer/syllaScan/apps/website/.next/server/pages/Syllabus/[id].js:62:20)
+    at async buildStaticPaths (/Users/roy/Developer/syllaScan/apps/website/node_modules/next/dist/build/utils.js:598:33)
+    at async /Users/roy/Developer/syllaScan/apps/website/node_modules/next/dist/build/utils.js:930:115
+    at async Span.traceAsyncFn (/Users/roy/Developer/syllaScan/apps/website/node_modules/next/dist/trace/trace.js:79:20) {
+  clientVersion: '4.10.1',
+  errorCode: undefined
+}
+
+> Build error occurred
+Error: Failed to collect page data for /Syllabus/[id]
+    at /Users/roy/Developer/syllaScan/apps/website/node_modules/next/dist/build/utils.js:960:15 {
+  type: 'Error'
+}
+npm ERR! Lifecycle script `build` failed with error: 
+npm ERR! Error: command failed 
+npm ERR!   in workspace: syllascan-website@0.1.0 
+npm ERR!   at location: /Users/roy/Developer/syllaScan/apps/website 

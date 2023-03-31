@@ -1,20 +1,23 @@
 import { useSession, getSession } from "next-auth/react"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { requireAuth } from "../utils/requireAuth"
+import { useEffect } from "react"
+import NavBar from "../components/NavBar"
 
-export default function Upload(){
-    const { data: session, status } = useSession()
-    const router = useRouter()
+export default function Upload( {}){
+
+
+    const [uploading, setUploading] = useState(false)
 
     const [file, setFile] = useState()
-    const [isFilePicked, setIsFilePicked] = useState(false)
 
     const changeHandler = (e : React.ChangeEvent<any>) => {
         setFile(e.target.files[0])
-        setIsFilePicked(true)
     }
 
     const handleSubmission = async () => {
+        setUploading(true)
         const formData : any = new FormData()
         formData.append("file", file)
         const response = await fetch("https://semantic-search-api.onrender.com/upload", {
@@ -23,22 +26,29 @@ export default function Upload(){
         })
         const data = await response.json()
         console.log(data)
+        setUploading(false)
         //router.push("/results")
-    
     }
 
-    if (status === "loading") {
-        return <p>Loading...</p>
-      }
-    
-      if (status === "unauthenticated") {
-        return (
-            router.push("/")
-        )
-      }
-
-
+    // tell users that they can naviagte away from the page and that the file is processing and will be avaible from the dashboard soon
+      if (uploading) {
+            return (
+                <>
+                <NavBar/>
+                <div className="hero min-h-screen bg-secondary-400">
+                <div className="hero-content text-left ">
+                    <div className="max-w-md">
+                    <h1 className="text-4xl font-serif">Processing...</h1>
+                </div>
+                </div>
+                </div>
+                </>
+            )
+        }
+        else {
     return(
+        <>
+        <NavBar/>
         <main>
             <div className="hero min-h-screen bg-secondary-400">
             <div className="hero-content text-left ">
@@ -51,7 +61,20 @@ export default function Upload(){
             </div>
             </div>
             </div>
-            <h1></h1>
         </main>
+        </>
     )
 }
+}
+
+export async function getServerSideProps(context: any){
+    return requireAuth(context, async (session: any) => {
+        session = await getSession(context)
+        return {
+            props: {
+                session
+            }
+        }
+    })
+}
+

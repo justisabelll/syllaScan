@@ -1,16 +1,9 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
-    // Further reading:
-    // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
-    // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
   url      = env("DATABASE_URL")
 }
 
@@ -25,13 +18,13 @@ model Account {
   userId            String
   type              String
   provider          String
-  providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  providerAccountId String 
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
   user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -54,6 +47,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  Syllabi       Syllabi[]
 }
 
 model VerificationToken {
@@ -64,12 +58,19 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model UserSyllabi  {
-  userId     String @id @default(cuid())
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  syllabusName String
-  syllabus   Json
-  biasScore  Float
-  problematicWords String[]
+model Findings {
+  Syllabi_ID String  @id @db.Uuid
+  Findings   Json?   @db.Json
+  Syllabi    Syllabi @relation(fields: [Syllabi_ID], references: [Syllabi_ID], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Syllabi {
+  owningUserID String
+  uploadedAt   DateTime? @default(now()) @db.Timestamptz(6)
+  corpus       String?
+  biasScore    Float?
+  Syllabi_ID   String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name         String?
+  Findings     Findings?
+  User         User      @relation(fields: [owningUserID], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

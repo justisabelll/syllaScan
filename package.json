@@ -17,10 +17,17 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "prettier": "^2.7.1",
+    "prisma": "^4.10.1",
     "turbo": "latest"
   },
   "packageManager": "^npm@9.5.1",
   "dependencies": {
-    "dotenv-cli": "^7.0.0"
+    "@supabase/supabase-js": "^2.8.0",
+    "dotenv-cli": "^7.0.0",
+    "next-auth": "^4.19.2"
+  },
+  "prisma": {
+    "schema": "apps/website/prisma/schema.prisma",
+    "env": "apps/website/.env"
   }
 }
