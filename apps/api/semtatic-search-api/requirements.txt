@@ -7,3 +7,4 @@ sentence_transformers==2.2.2
 supabase==1.0.2
 torch==1.13.1
 uvicorn[standard]
+python-multipart==0.0.5
