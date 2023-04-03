@@ -1,6 +1,8 @@
 import torch 
 from sentence_transformers import SentenceTransformer, util
 
+
+
 queries =[
     "agree","affectionate","child","cheer","collab","commit","communal",
     "compassion","connect","considerate","cooperat","co-operat",
@@ -47,11 +49,11 @@ class result:
         
     
 
-def semanticSearch(syllabus):
+def semanticSearch(syllabusText):
     embedder = SentenceTransformer('all-MiniLM-L6-v2')
-    corpus = syllabus.split(' ')
+    corpus = syllabusText.split(' ')
     corpus_embeddings = embedder.encode(corpus, convert_to_tensor=True)
-    results = result(syllabus)
+    results = result(syllabusText)
     top_k = min(5, len(corpus))
     for query in queries:
         query_embedding = embedder.encode(query, convert_to_tensor=True)
