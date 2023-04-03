@@ -4,5 +4,5 @@ pydantic==1.10.5
 PyPDF2==3.0.1
 python_docx==0.8.11
 sentence_transformers==2.2.2
-supabase==1.0.3
+supabase==1.0.2
 torch==1.13.1
