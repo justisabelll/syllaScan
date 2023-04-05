@@ -35,7 +35,6 @@ export default function Upload(){
             body: formData,
 
         })
-
         const json = await response.json()
         console.log(json)
     }
