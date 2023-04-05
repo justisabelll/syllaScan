@@ -34,11 +34,7 @@ def getDocxText(file):
 
     
 
-origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "http://localhost:3000/Upload",
-]
+origins = ["*"]
 
 middleware = [
     Middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
