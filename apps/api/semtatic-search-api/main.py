@@ -2,12 +2,11 @@ import os
 import docx
 import tempfile
 from semanticSearch import semanticSearch as Search 
-from fastapi import FastAPI, File, UploadFile, HTTPException
+from fastapi import FastAPI, File, UploadFile, HTTPException, Form
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
 from PyPDF2 import PdfReader
 from db_upload import uploadtoDB, Syllabus
-
 
     
 def checkExtension(file):
@@ -34,7 +33,13 @@ def getDocxText(file):
 
     
 
-origins = ["*"]
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+    "https://localhost",
+    "https://localhost:3000",
+]
+
 
 middleware = [
     Middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
@@ -50,8 +55,7 @@ def read_root():
 
 
 @app.post("/upload")
-async def process_syllabus(syllabus_file: UploadFile = File(...), owner_ID: str = ""):
-    
+async def process_syllabus(syllabus_file: UploadFile = File(...), owner_ID: str = Form(...)):
     extension = checkExtension(syllabus_file.filename)
     
     if extension == ".pdf":
@@ -66,6 +70,6 @@ async def process_syllabus(syllabus_file: UploadFile = File(...), owner_ID: str 
         
     Findings = Search(syllabusText)
     Syllabus_ForDB = Syllabus(name = syllabus_file.filename, ownerID = owner_ID, corpus = Findings.corpus, biasScore = Findings.docScore, findings = Findings.findings)
-    
+    print(owner_ID, "LOOOOOOOOOOOOOK HERE")
     return uploadtoDB(Syllabus_ForDB)
 
