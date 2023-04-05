@@ -70,7 +70,6 @@ export default function Results({ syllabi }: any) {
 
   function checkForSession() {
     const session = getSession().then((session) => {
-      console.log(session);
       if (session) {
         setSessionStatus(true);
       } else {

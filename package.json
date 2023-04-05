@@ -24,7 +24,8 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.8.0",
     "dotenv-cli": "^7.0.0",
-    "next-auth": "^4.19.2"
+    "next-auth": "^4.19.2",
+    "react-hook-form": "^7.43.9"
   },
   "prisma": {
     "schema": "apps/website/prisma/schema.prisma",

@@ -3,6 +3,7 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import { requireAuth } from "../utils/requireAuth"
 import NavBar from "../components/NavBar"
+import { useForm } from "react-hook-form"
 
 interface syllabiPOST {
     syllabus: File
@@ -10,30 +11,37 @@ interface syllabiPOST {
 }
 
 
-export default function Upload( {session}: any){
-
-
+export default function Upload(){
+    const { register, handleSubmit } = useForm()
     const [uploaded, setUploaded] = useState(false)
+    const { data: session, status } = useSession()
 
-    const [file, setFile] = useState()
 
-    const changeHandler = (e : React.ChangeEvent<any>) => {
-        setFile(e.target.files[0])
-    }
-
-    const handleSubmission = async (file: File) => {
+    const handleSubmission = async ( data : any) => {
         setUploaded(true)
-        const newSyllabus: syllabiPOST = {
-            syllabus: file,
-            owningUserID: session.user.id,
-        }
+        // const newSyllabus: syllabiPOST = {
+        //     syllabus: data.syllabus[0],
+        //     owningUserID: session.user.id
+        // }
+
+        const formData = new FormData()
+        formData.append("syllabus_file", data.syllabus[0])
+        formData.append("owner_ID", session?.user?.id || "")
+        console.log(data.syllabus[0])
 
 
         const response = await fetch("https://semantic-search-api.onrender.com/upload", {
             method: "POST",
-            body: JSON.stringify(newSyllabus),
+            body: formData,
+
         })
+
+        const json = await response.json()
+        console.log(json)
     }
+
+
+
 
     // tell users that they can naviagte away from the page and that the file is processing and will be avaible from the dashboard soon
       if (uploaded) {
@@ -64,8 +72,10 @@ export default function Upload( {session}: any){
                 <div className="max-w-md">
                 <h1 className="text-4xl font-serif">Please upload a syllabus for bias detection...</h1>
                 <div className="grid place-items-center">
-                <input onChange={changeHandler} type="file" className="mt-4 file-input file-input-bordered w-full file-input-primary max-w-xs" />
-                <button onClick={() => handleSubmission} type="submit" className="btn btn-block mt-2">Submit</button>
+                <form onSubmit={handleSubmit(handleSubmission)} >
+                <input {...register("syllabus")} required  type="file" className="mt-4 file-input file-input-bordered w-full file-input-primary max-w-xs" />
+                <button type="submit" className="btn btn-block mt-2">Submit</button>
+                </form>
                 </div>
             </div>
             </div>
@@ -75,7 +85,6 @@ export default function Upload( {session}: any){
     )
 }
 }
-
 
 export async function getServerSideProps(context: any){
     return requireAuth(context, async (session: any) => {

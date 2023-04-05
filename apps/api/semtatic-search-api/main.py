@@ -3,7 +3,7 @@ import docx
 import tempfile
 from semanticSearch import semanticSearch as Search 
 from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
 from PyPDF2 import PdfFileReader
 from db_upload import uploadtoDB, Syllabus
 
