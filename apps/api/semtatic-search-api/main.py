@@ -17,7 +17,7 @@ def getPDFText(file):
     reader = PdfReader(file)
     numOfPages = len(reader.pages)
     for i in range(numOfPages):
-        page = reader.getPage(i)
+        page = reader.pages[numOfPages]
         alltext += page.extractText()
     return alltext
 

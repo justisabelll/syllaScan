@@ -27,7 +27,6 @@ export default function Upload(){
         const formData = new FormData()
         formData.append("syllabus_file", data.syllabus[0])
         formData.append("owner_ID", session?.user?.id || "")
-        console.log(formData.get("owner_ID"))
 
         await fetch("https://semantic-search-api.onrender.com/upload", {
             method: "POST",
