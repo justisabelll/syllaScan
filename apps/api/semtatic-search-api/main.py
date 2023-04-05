@@ -5,7 +5,7 @@ from semanticSearch import semanticSearch as Search
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 from db_upload import uploadtoDB, Syllabus
 
 
@@ -15,7 +15,7 @@ def checkExtension(file):
                         
 def getPDFText(file):
     alltext = ""
-    reader = PdfFileReader(file)
+    reader = PdfReader(file)
     numOfPages = len(reader.pages)
     for i in range(numOfPages):
         page = reader.getPage(i)
@@ -51,14 +51,7 @@ middleware = [
     Middleware(CORSMiddleware, allow_origins=origins)
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-    expose_headers=["*"]
-)
+
 
 @app.get("/")
 def read_root():
