@@ -4,6 +4,7 @@ import tempfile
 from semanticSearch import semanticSearch as Search 
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from starlette.middleware.cors import CORSMiddleware
+from starlette.middleware import Middleware
 from PyPDF2 import PdfFileReader
 from db_upload import uploadtoDB, Syllabus
 
@@ -35,6 +36,7 @@ def getDocxText(file):
 
 app = FastAPI()
 
+
 def prints(text):
     print(type(text))
 
@@ -43,6 +45,10 @@ origins = [
     "http://localhost",
     "http://localhost:3000",
     "http://localhost:3000/Upload",
+]
+
+middleware = [
+    Middleware(CORSMiddleware, allow_origins=origins)
 ]
 
 app.add_middleware(
