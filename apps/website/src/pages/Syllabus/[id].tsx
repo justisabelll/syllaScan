@@ -11,6 +11,7 @@ import { authOptions } from "../api/auth/[...nextauth]";
 import { NextApiRequest } from "next";
 import { setInterval } from "timers/promises";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 interface SyllabusSearchProps {
   results: {
@@ -26,6 +27,8 @@ interface SyllabusSearchProps {
     docScore: number;
   };
 }
+
+
 
 export async function getStaticPaths(context: any) {
   const allIds = await prisma.syllabi.findMany({
@@ -56,6 +59,7 @@ export async function getStaticProps({ params }: any) {
       corpus: true,
       name: true,
       biasScore: true,
+      Syllabi_ID: true,
     },
   });
   return {
@@ -66,8 +70,12 @@ export async function getStaticProps({ params }: any) {
 }
 
 export default function Results({ syllabi }: any) {
+
+  const router = useRouter();
   const [isSession, setSessionStatus] = useState(true);
 
+
+  
   function checkForSession() {
     const session = getSession().then((session) => {
       if (session) {

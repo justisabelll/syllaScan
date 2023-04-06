@@ -48,7 +48,7 @@ export default function Upload(){
                     <div className="max-w-md">
                     <h1 className="text-2xl font-medium font-serif">Your syllabus is currently processing and the results will be avaiable soon in the dashboard.</h1>
                     <div className="flex w-min flex-row gap-2">
-                    <a href="/dashboard" className="btn btn-block mt-2">Back to Dashboard</a>
+                    <a href="/Dashboard" className="btn btn-block mt-2">Back to Dashboard</a>
                     <button onClick={() => setUploaded(false)} className="btn btn-block mt-2">Upload Another Syllabus</button>
                     </div>
                 </div>
