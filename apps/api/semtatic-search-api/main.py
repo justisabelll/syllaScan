@@ -17,7 +17,7 @@ def getPDFText(file):
     reader = PdfReader(file)
     numOfPages = len(reader.pages)
     for i in range(numOfPages):
-        page = reader.pages[numOfPages]
+        page = reader.pages[i]
         alltext += page.extractText()
     return alltext
 
@@ -71,6 +71,5 @@ async def process_syllabus(syllabus_file: UploadFile = File(...), owner_ID: str 
         
     Findings = Search(syllabusText)
     Syllabus_ForDB = Syllabus(name = syllabus_file.filename, ownerID = owner_ID, corpus = Findings.corpus, biasScore = Findings.docScore, findings = Findings.findings)
-    print(owner_ID, "LOOOOOOOOOOOOOK HERE")
     return uploadtoDB(Syllabus_ForDB)
 
