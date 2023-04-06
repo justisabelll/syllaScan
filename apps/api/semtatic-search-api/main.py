@@ -7,6 +7,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.middleware import Middleware
 from PyPDF2 import PdfReader
 from db_upload import uploadtoDB, Syllabus
+import supabase
 
     
 def checkExtension(file):
@@ -73,3 +74,14 @@ async def process_syllabus(syllabus_file: UploadFile = File(...), owner_ID: str 
     Syllabus_ForDB = Syllabus(name = syllabus_file.filename, ownerID = owner_ID, corpus = Findings.corpus, biasScore = Findings.docScore, findings = Findings.findings)
     return uploadtoDB(Syllabus_ForDB)
 
+
+@app.delete("/delete")
+async def delete_syllabus(syllabus_ID: str ):
+    try:
+        deleted_syllabus = supabase.table("syllabi").delete().eq("id", syllabus_ID).execute()
+        if deleted_syllabus:
+            return {"status": "success", "message": "Syllabus deleted successfully"}
+        else:
+            raise HTTPException(status_code=404, detail="Syllabus not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to delete syllabus: {str(e)}")
