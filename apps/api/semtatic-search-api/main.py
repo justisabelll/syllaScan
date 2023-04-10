@@ -35,10 +35,7 @@ def getDocxText(file):
     
 
 origins = [
-    "http://localhost",
-    "http://localhost:3000",
-    "https://localhost",
-    "https://localhost:3000",
+"https://sylla-scan-website-anh857jl3-someboiroy.vercel.app"
 ]
 
 
