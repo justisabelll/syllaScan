@@ -21,15 +21,15 @@ Route (pages)                                                     Size     First
 ├ ○ /404                                                          181 B          84.6 kB
 ├ λ /api/auth/[...nextauth]                                       0 B            84.5 kB
 ├ λ /Dashboard                                                    885 B          87.5 kB
-├ ● /Syllabus/[id] (5056 ms)                                      1.25 kB        87.9 kB
-├   ├ /en/Syllabus/ec449bc5-d062-41d4-855c-49aa5d944e31 (699 ms)
-├   ├ /en/Syllabus/51934bc6-64b0-48eb-92c0-3a2563b882d3 (698 ms)
-├   ├ /en/Syllabus/42856c45-f342-48b8-85c6-c685a6d08da8 (692 ms)
-├   ├ /en/Syllabus/f54f5538-256e-400b-8f1e-1005f97c5384 (692 ms)
-├   ├ /en/Syllabus/2e145320-734e-43b1-a9f9-6e4f89285353 (684 ms)
-├   ├ /en/Syllabus/42c7239b-7c6b-4968-bf3a-9a9cb7f661d1 (682 ms)
-├   ├ /en/Syllabus/3c538f2c-ad83-409b-abd8-f59ab9648b65 (645 ms)
-├   └ /en/Syllabus/46e5e08b-270b-43a1-a032-7a06cb0c5048
+├ ● /Syllabus/[id] (5362 ms)                                      1.25 kB        87.9 kB
+├   ├ /en/Syllabus/f54f5538-256e-400b-8f1e-1005f97c5384 (762 ms)
+├   ├ /en/Syllabus/ec449bc5-d062-41d4-855c-49aa5d944e31 (751 ms)
+├   ├ /en/Syllabus/51934bc6-64b0-48eb-92c0-3a2563b882d3 (733 ms)
+├   ├ /en/Syllabus/46e5e08b-270b-43a1-a032-7a06cb0c5048 (718 ms)
+├   ├ /en/Syllabus/42c7239b-7c6b-4968-bf3a-9a9cb7f661d1 (715 ms)
+├   ├ /en/Syllabus/2e145320-734e-43b1-a9f9-6e4f89285353 (714 ms)
+├   ├ /en/Syllabus/42856c45-f342-48b8-85c6-c685a6d08da8 (705 ms)
+├   └ /en/Syllabus/3c538f2c-ad83-409b-abd8-f59ab9648b65
 └ λ /Upload                                                       8.71 kB        95.4 kB
 + First Load JS shared by all                                     90.1 kB
   ├ chunks/framework-93435e5523790c31.js                          45.4 kB
