@@ -19,7 +19,7 @@ def getPDFText(file):
     numOfPages = len(reader.pages)
     for i in range(numOfPages):
         page = reader.pages[i]
-        alltext += page.extractText()
+        alltext += page.extract_text()
     return alltext
 
 def getDocxText(file):
@@ -35,7 +35,8 @@ def getDocxText(file):
     
 
 origins = [
-"https://sylla-scan-website-anh857jl3-someboiroy.vercel.app"
+"https://sylla-scan-website-anh857jl3-someboiroy.vercel.app",
+"https://sylla-scan-website.vercel.app/"
 ]
 
 
