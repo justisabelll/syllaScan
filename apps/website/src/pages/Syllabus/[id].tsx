@@ -35,6 +35,8 @@ interface SyllabusProps {
 
 
 export async function getStaticPaths(context: any) {
+
+
   const allIds = await prisma.syllabi.findMany({
     select: {
       Syllabi_ID: true,
@@ -50,7 +52,7 @@ export async function getStaticPaths(context: any) {
         id: id.Syllabi_ID.toString(),
       },
     })),
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
@@ -103,6 +105,15 @@ export default function Results({ syllabi }: any) {
   };
 
   const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h1 className="text-3xl">Loading...</h1>
+      </div>
+    );
+  }
+
   const [isSession, setSessionStatus] = useState(true);
 
 
